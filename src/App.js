@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import Header from "./components/Header";
+import About from "./About";
+import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -9,9 +10,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="card">
-        <h1>app</h1>
-      </div>
+      <Router>
+        <Switch>
+          <div className="main">
+            <Navbar />
+            <h1>app</h1>
+          </div>
+          <Route path="/about" render={props => <About />} />
+        </Switch>
+      </Router>
     );
   }
 }
