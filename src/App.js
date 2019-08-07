@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import About from "./About";
 import Navbar from "./Navbar";
+import Contact from "./Contact";
+import Home from "./Home";
+
+import "./App.css";
+
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -11,13 +16,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <div className="main">
-            <Navbar />
-            <h1>app</h1>
-          </div>
-          <Route path="/about" render={props => <About />} />
-        </Switch>
+        <div className="main">
+          <Navbar />
+          <Switch>
+            <Route exact path={["/", "/home"]} render={props => <Home />} />
+            <Route path="/about" render={props => <About />} />
+            <Route path="/contact" render={props => <Contact />} />
+          </Switch>
+        </div>
       </Router>
     );
   }
