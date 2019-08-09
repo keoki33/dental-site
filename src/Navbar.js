@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Navbar extends Component {
   state = {};
@@ -7,9 +8,28 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="navbar">
-        <h1>Navbar</h1>
-      </div>
+      <nav>
+        <ul className="navLinks">
+          <li>
+            {" "}
+            <Link to="/" className="link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="link">
+              About
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/contact" className="link">
+              Contact
+            </Link>
+          </li>
+        </ul>
+        <div className="navBorder" />
+      </nav>
     );
   }
 }
